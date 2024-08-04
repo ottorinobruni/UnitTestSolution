@@ -1,6 +1,3 @@
-Here's a `README.md` file tailored to your `UnitTestSolution` project based on your provided template:
-
----
 
 # UnitTestSolution
 
