@@ -1,3 +1,5 @@
+using FluentAssertions;
+
 namespace UnitTestConsoleApp.Tests;
 
 public class UserAccountTests
@@ -19,7 +21,7 @@ public class UserAccountTests
         _userAccount.SetEmail(email);
 
         // Assert
-        Assert.Equal(email, _userAccount.GetEmail());
+        _userAccount.GetEmail().Should().Be(email);
     }
 
     [Fact]
@@ -29,7 +31,9 @@ public class UserAccountTests
         string emptyEmail = "";
 
         // Act and Assert
-        var exception = Assert.Throws<ArgumentException>(() => _userAccount.SetEmail(emptyEmail));
+        Action act = () => _userAccount.SetEmail(emptyEmail);
+        act.Should().Throw<ArgumentException>()
+                .WithMessage("Email cannot be null or empty");
     }
 
     [Fact]
@@ -39,7 +43,7 @@ public class UserAccountTests
         string email = _userAccount.GetEmail();
 
         // Assert
-        Assert.Null(email);
+        email.Should().BeNull();
     }
 
     [Theory]
@@ -52,7 +56,7 @@ public class UserAccountTests
         _userAccount.SetEmail(email);
 
         // Assert
-        Assert.Equal(email, _userAccount.GetEmail());
+        _userAccount.GetEmail().Should().Be(email);
     }
 
     [Theory]
@@ -61,8 +65,11 @@ public class UserAccountTests
     [InlineData(" ")]
     public void SetEmail_InvalidEmail_ThrowsArgumentException(string invalidEmail)
     {
-        // Act and Assert
-        var exception = Assert.Throws<ArgumentException>(() => _userAccount.SetEmail(invalidEmail));
-        Assert.Equal("Email cannot be null or empty", exception.Message);
+        // Act
+        Action act = () => _userAccount.SetEmail(invalidEmail);
+
+        // Assert using FluentAssertions
+        act.Should().Throw<ArgumentException>()
+        .WithMessage("Email cannot be null or empty");
     }
 }
