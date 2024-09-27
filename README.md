@@ -1,14 +1,15 @@
 
 # UnitTestSolution
 
-This repository contains the source code for the UnitTestSolution project. The aim of this project is to provide a comprehensive guide on how to use Moq for unit testing in .NET projects with C# and VSCode. The project demonstrates how to set up and use Moq to effectively test components by mocking dependencies and verifying interactions.
+This repository contains the source code for the UnitTestSolution project, aimed at providing a comprehensive guide on unit testing in .NET projects using C#, Moq, and FluentAssertions with Visual Studio Code. The project demonstrates how to set up and use these tools to effectively test components by mocking dependencies, verifying interactions, and making assertions more readable and expressive.
 
 ## Usage Instructions
 
-The main branch contains the initial code used in the tutorial. It's the starting point for exploring how to use Moq in your unit tests. There are separate tags and branches for different implementations and examples that you can review or download. Here are links you can use to jump to these tagged versions in your browser:
+The main branch contains the initial code used in the tutorial. There are separate tags and branches for different implementations and examples you can review or download, covering:
 
-- **Moq Basics**
-- **Advanced Moq Features**
+- **Moq Basics**: Learn how to use Moq for mocking dependencies in unit tests.
+- **Advanced Moq Features**: Explore more complex testing scenarios with Moq.
+- **xUnit with FluentAssertions**: Improve test readability and error messages using FluentAssertions for more expressive unit tests.
 
 ## Contents
 
